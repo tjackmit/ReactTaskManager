@@ -5,7 +5,6 @@ import Profile from './pages/Profile/Profile';
 import Account from './pages/Profile/Account';
 import Settings from './pages/Profile/Settings';
 import TaskManager from './pages/TaskManager/TaskManager';
-// import NavBar from './components/NavBar';
 import Sidebar from './components/Sidebar/SideBar';
 import AboutUs from './pages/AboutUs';
 import Contact from './pages/Contact';
@@ -19,7 +18,6 @@ function App() {
             height: '500px',
             // backgroundColor: 'blue',
         }}>
-            {/* <NavBar /> */}
             <Sidebar />
             <Routes>
                 <Route path="/" exact element={<Welcome />} />
