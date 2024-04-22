@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import * as FaIcons from "react-icons/fa";
@@ -46,43 +46,60 @@ const Sidebar = () => {
 
 	const showSidebar = () => setSidebar(!sidebar);
 
+	const sideBarRef = useRef(null);
+
+	useEffect(() => {
+		document.addEventListener("click", handleClickOutside, false);
+		return () => {
+		  document.removeEventListener("click", handleClickOutside, false);
+		};
+	  }, []);
+	
+	  const handleClickOutside = event => {
+		if (sideBarRef.current && !sideBarRef.current.contains(event.target)) {
+		  setSidebar(false);
+		}
+	  };
+
 	return (
 		<>
-			<IconContext.Provider value={{ color: "#ffffff" }}>
-				<Nav>
-					<NavIcon to="#">
-						<FaIcons.FaBars
-							onClick={showSidebar}
-						/>
-					</NavIcon>
-					<h1
-						style={{
-							textAlign: "center",
-							marginLeft: "200px",
-							color: "blue",
-						}}
-					>
-						Task Manager
-					</h1>
-				</Nav>
-				<SidebarNav sidebar={sidebar}>
-					<SidebarWrap>
+			<div className="sideBarMenu" ref={sideBarRef}>
+				<IconContext.Provider value={{ color: "#ffffff" }}>
+					<Nav>
 						<NavIcon to="#">
-							<AiIcons.AiOutlineClose
+							<FaIcons.FaBars
 								onClick={showSidebar}
 							/>
 						</NavIcon>
-						{SidebarData.map((item, index) => {
-							return (
-								<SubMenu
-									item={item}
-									key={index}
+						<h1
+							style={{
+								textAlign: "center",
+								marginLeft: "200px",
+								color: "blue",
+							}}
+						>
+							Task Manager
+						</h1>
+					</Nav>
+					<SidebarNav sidebar={sidebar}>
+						<SidebarWrap>
+							<NavIcon to="#">
+								<AiIcons.AiOutlineClose
+									onClick={showSidebar}
 								/>
-							);
-						})}
-					</SidebarWrap>
-				</SidebarNav>
-			</IconContext.Provider>
+							</NavIcon>
+							{SidebarData.map((item, index) => {
+								return (
+									<SubMenu
+										item={item}
+										key={index}
+									/>
+								);
+							})}
+						</SidebarWrap>
+					</SidebarNav>
+				</IconContext.Provider>
+			</div>
 		</>
 	);
 };
