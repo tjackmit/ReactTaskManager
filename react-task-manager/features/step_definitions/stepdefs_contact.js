@@ -1,21 +1,18 @@
 const assert = require('assert');
 const { Given, When, Then } = require('@cucumber/cucumber');
 
-Given('the user goes to the Task Manager website', function () {
-    console.log('The user go to Task Manager website URL')
-});
 
-When('the Task Manager website loads', function () {
+When('the user clicks the \'contact\' option in the navigation menu', function () {
     // Write code here that turns the phrase above into concrete actions
     return 'pending';
 });
 
-Then('I should see the welcome screen', function () {
+Then('the user should be taken to the Contact page', function () {
     // Write code here that turns the phrase above into concrete actions
     return 'pending';
 });
 
-Then('the Task Manager logo', function () {
+Then('the Contact header should be visible', function () {
     // Write code here that turns the phrase above into concrete actions
     return 'pending';
 });

@@ -23,6 +23,13 @@ export const SidebarData = [
 		iconClosed: <RiIcons.RiArrowDownSFill />,
 		iconOpened: <RiIcons.RiArrowUpSFill />,
 	},
+	{
+		title: "Schedule Calendar",
+		path: "/schedule/calendar",
+		icon: <FaIcons.FaTasks />,
+		iconClosed: <RiIcons.RiArrowDownSFill />,
+		iconOpened: <RiIcons.RiArrowUpSFill />,
+	},
     {
         title: "Profile",
         path: "/profile",

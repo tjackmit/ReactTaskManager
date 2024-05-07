@@ -5,6 +5,7 @@ import Profile from './pages/Profile/Profile';
 import Account from './pages/Profile/Account';
 import Settings from './pages/Profile/Settings';
 import TaskManager from './pages/TaskManager/TaskManager';
+import ScheduleCalendar from './pages/TaskManager/ScheduleCalendar';
 import Sidebar from './components/Sidebar/SideBar';
 import AboutUs from './pages/AboutUs';
 import Contact from './pages/Contact';
@@ -25,6 +26,7 @@ function App() {
                 <Route path="/profile/account" element={<Account />} />
                 <Route path="/profile/settings" element={<Settings />} />
                 <Route path="/tasks" element={<TaskManager />} />
+                <Route path="/schedule/calendar" element={<ScheduleCalendar />} />
                 <Route
                     path="/about-us"
                     element={<AboutUs />}
